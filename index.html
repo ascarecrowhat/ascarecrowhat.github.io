@@ -2,130 +2,278 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Stefano Longari's page</title>
-<meta name="generator" content="Jekyll v4.3.3" />
-<meta property="og:title" content="Minimal theme" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Minimal is a theme for GitHub Pages." />
-<meta property="og:description" content="Minimal is a theme for GitHub Pages." />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Minimal theme" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Minimal theme" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Minimal is a theme for GitHub Pages.","headline":"Minimal theme","name":"Minimal theme","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/logo.png"}},"url":"http://localhost:4000/"}</script>
-<!-- End Jekyll SEO tag -->
-
-    <link rel="stylesheet" href="/assets/css/style.css?v=">
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
-
-<!-- Setup Google Analytics -->
-
-
-
-<!-- You can set your favicon here -->
-<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
-
-<!-- end custom head snippets -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stefano Longari's Academic Page</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+      /* Global Styles */
+      body {
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        background: #2C394B; /* Sharper gray background */
+        color: #333;
+      }
+      .container {
+        display: flex;
+        min-height: 100vh;
+      }
+      /* Sidebar Styles */
+      .sidebar {
+        flex: 0 0 300px;
+        background: #082032; /* Weaker blue */
+        color: #fff;
+        padding: 20px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+      }
+      .sidebar h1 {
+        margin-top: 0;
+        font-size: 2em;
+        text-align: center; /* Center the name */
+      }
+      .sidebar img {
+        display: block;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 20px auto;
+        border: 4px solid #fff;
+      }
+      .sidebar .contact-info {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .sidebar .contact-info p {
+        margin: 5px 0;
+      }
+      .sidebar .downloads {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+      .sidebar .downloads li {
+        margin: 10px 0;
+        display: inline-block;
+      }
+      .sidebar .downloads a {
+        text-decoration: none;
+        color: #fff;
+        background: rgba(255,255,255,0.2);
+        padding: 4px 8px; /* Smaller download boxes */
+        border-radius: 5px;
+        transition: background 0.3s;
+        font-size: 0.9em;
+        margin: 0 5px;
+        display: inline-block;
+      }
+      .sidebar .downloads a:hover {
+        background: rgba(255,255,255,0.4);
+      }
+      /* Main Content Styles */
+      .main-content {
+        flex: 1;
+        padding: 40px;
+        overflow-y: auto;
+      }
+      .main-content section {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      }
+      .main-content h3, .main-content h4 {
+        color: #31363F;
+        margin-top: 0;
+      }
+      /* Two-column layout for sections */
+      .two-column {
+        display: flex;
+        align-items: flex-start;
+      }
+      .section-title {
+        flex: 0 0 150px;
+        padding-right: 20px;
+        border-right: 2px solid #FF4C29;
+        text-align: right;
+      }
+      .section-title h2 {
+        margin: 0;
+        padding-right: 10px;
+        color: #31363F; /* h2 headers not black */
+      }
+      .section-content {
+        flex: 1;
+        padding-left: 20px;
+      }
+      /* Responsive: Stack Sidebar on top for small screens */
+      @media screen and (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+        .sidebar {
+          position: relative;
+          width: 100%;
+          height: auto;
+        }
+        .two-column {
+          flex-direction: column;
+        }
+        .section-title {
+          border-right: none;
+          text-align: left;
+          padding-right: 0;
+          margin-bottom: 10px;
+        }
+        .section-content {
+          padding-left: 0;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="http://localhost:4000/">Stefano Longari</a></h1>
-
-        
-          <img src="/assets/img/me.jpg" alt="profile" />
-        
-
-        <p>stefano.longari@polimi.it <br>
-           02 2399 3443
-        </p>
-       
+    <div class="container">
+      <!-- Sidebar with fixed basic info -->
+      <div class="sidebar">
+        <h1>Stefano Longari</h1>
+        <img src="./assets/img/me.jpg" alt="Profile Picture">
+        <div class="contact-info">
+          <p>stefano.longari@polimi.it</p>
+          <p>+39 02 2399 3443</p>
+        </div>
         <ul class="downloads">
-          <li><a href="docs/curriculum_stefanolongari_062024.pdf">Download<strong>CV</strong></a></li>
-          <li><a href="https://www.scopus.com/authid/detail.uri?origin=resultslist&authorId=57212167947">Link <strong>Scopus</strong></a></li>
-          <li><a href="https://twitter.com/aScarecrowHat">Link <strong>X (Twitter)</strong></a></li>
+          <li>
+            <a href="docs/curriculum_stefanolongari_07042025.pdf">
+              <i class="fas fa-file-download"></i> CV
+            </a>
+          </li>
+
+          <li>
+            <a href="https://scholar.google.com/citations?user=B1BwyfcAAAAJ">
+              <i class="fas fa-link"></i> Scholar
+            </a>
+          </li>
+          
+          <li>
+            <a href="https://www.scopus.com/authid/detail.uri?origin=resultslist&authorId=57212167947">
+              <i class="fas fa-link"></i> Scopus
+            </a>
+          </li>
+          
+          <li>
+            <a href="https://www.linkedin.com/in/stefano-longari/">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+          </li>
         </ul>
-        
-      </header>
-      <section>
+      </div>
+      <!-- Main content scrolls -->
+      <div class="main-content">
+        <!-- Introductory Section (without h2) -->
+        <section>
+          <p>
+            I am currently an assistant professor (RTDa) at Politecnico di Milano, working in the system security group at NECST Laboratory inside the Dipartimento di Elettronica, Informazione e Bioingegneria. The focus of my research revolves around threat modeling and developing offensive and defensive techniques for the security of cyber-physical systems and transportation systems, e.g., automotive, space, industry 4.0, and critical infrastructure. I teach mainly courses and lectures on (cyber-physical) systems security and social engineering.          </p>
+          <p>
+            For more details check my links on the left!
+          </p>
 
-        <br>        
-        <br>
-        <br>
-        <br>
-        <br>
-<p>I am currently an assistant professor (RTDa) at Politecnico di Milano, working in the system security group at NECST Laboratory inside the Dipartimento di Elettronica, Informazione e Bioingegneria. The focus of my research revolves around
-  offensive and defensive techniques for the security of cyber-physical systems and transportation systems, e.g., automotive, space, industry 4.0, and critical infrastructure. </p>
-  <br>
-  <br>
-  <br>
-
-
-<h1 id="header-1">Teaching:</h1>
-
-<h2 id="header-2">Human and Physical Aspects of Security</h2>
-<p>Available to Politecnico di Milano's Computer Science and Engineering master students and to Bocconi's Cyber Risk Strategy and Governance master students.<br></p>
-  <h3 id="header-3">Program</h3>
-  <p> Course under construction. Topics will include:<br>
-- The threat modeling process, common threat modeling frameworks  <br>
-- The human factor in security: Social engineering, its principles, digital and physical mediums, mitigations and countermeasures.  <br>
-- Cyber-physical systems security, the differences between IT and OT, technology use cases, and countermeasures.
-
-  </p>
-<h3 id="header-3">Resources TBD</h3> 
-
-
-  <h2 id="header-2">Advanced Research Topics in cybersecurity</h2>
-<p>Available to Politecnico di Milano's Computer Science and Engineering Ph.D. students and optionally to master students. </p>
-  <h3 id="header-3">Program</h3>
-  <p>The goal of the course is that of providing the students with an understanding of the latest years cutting edge research challenges and solutions in the cybersecurity field. The first half of the course will be held as frontal lectures, while the second half of the course will be held as a flipped classroom with paper discussions. <br>
-    
-    The topics we will discuss about are: Economics of cybercrime, Software vulnerabilities, Malware analysis, Hardware and embedded systems security, Cyber-physical and critical systems security, Cyberwarfare and cyberdefense, Machine learning for security and security of machine learning
-
-  </p>
-
-
-
-<h1 id="header-1">Research:</h1>
-<p>I am particularly interested in the area of cyber-physical systems and how they can be defended against threats by incorporating techniques from multiple fields. My goal, in studying both defensive measures and new attack methods, is to gain a comprehensive understanding of the threat model of this evolving field. My research interests mainly delve into the security of industrial and manufacturing automation, land - mainly automotive - and air transportation systems, space and satellite systems, and overall critical cyber-physical infrastructures.</p>
-<p> If you are interested in a research thesis project on the aforementioned topics, feel free to contact me.</p>
-</p>
-<h2 id="header-2">Publication Highlights</h2>
-
-<h3 id="header-3">Janus: A Trusted Execution Environment Approach for Attack Detection in Industrial Robot Controllers (IEEE TETC 2024)</h3>
-The evolution of our work on monitoring mechanisms for cyber-physical systems based on the use of Trusted Execution Environments, to guarantee the integrity of the attack detection algorithm even in case the controller's software is compromised, while not requiring external hardware for its detection process.
-<p><a href="./docs/janus.pdf">Preprint</a> / <a href="https://ieeexplore.ieee.org/abstract/document/10508318">Link</a></p>
-
-<h3 id="header-3">Evaluating the Impact of Privacy-Preserving Federated Learning on CAN Intrusion Detection (IEEE VTC 2024)</h3>
-Our initial project focusing on the federation of ML/DL algorithms for intrusion detection on CAN. The goal of the paper is to understand the limitiations and requirements to federate CANdito (an evolution of CANnolo, see below) while maintaining detection capabilities and low network overhead.
-<p><a href="./docs/federated.pdf">Preprint</a> / <a href="">To be published</a></p>
-
-<h3 id="header-3">CANflict: Exploiting Peripheral Conflicts for Data-Link Layer Attacks on Automotive Networks (ACM CCS 2022)</h3>
-One of our team's most effective attack approaches. We demonstrate how it is possible to generate advanced data-link layer attacks against automotive networks (CAN) without requiring physical access to the vehicle, previously an assumption for that kind of attacks. 
-<p><a href="./docs/canflict.pdf">Preprint</a> / <a href="https://dl.acm.org/doi/abs/10.1145/3548606.3560618">Link</a></p>
-
-<h3 id="header-3">CANnolo: An anomaly detection system based on LSTM autoencoders for controller area network (IEEE TNSM 2020)</h3>
-The beginning of our research team work on automotive intrusion detection based on deep learning. Our IDS attempts to reconstruct the last CAN packets with a specific ID, and depending on its reconstruction error defines whether a sequence is anomalous or not. 
-<p><a href="./docs/cannolo.pdf">Preprint</a> / <a href="https://ieeexplore.ieee.org/abstract/document/9262960">Link</a></p>
-
-
-      </section>
-      <footer>
-        
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+          </section>
+        <!-- Teaching Section -->
+        <section>
+          <div class="two-column">
+            <div class="section-title">
+              <h2>Teaching</h2>
+            </div>
+            <div class="section-content">
+              <h3>Human and Physical Aspects of Security</h3>
+              <p>
+                Available to Politecnico di Milano's Computer Science and Engineering master students and to Bocconi's Cyber Risk Strategy and Governance master students.
+              </p>
+              <h4>Program overview</h4>
+              <ul>
+                <li>The threat modeling process, common threat modeling frameworks</li>
+                <li>The human factor in security: Social engineering, digital and physical mediums, mitigations and countermeasures</li>
+                <li>Cyber-physical systems security: differences between IT and OT, technology use cases, and countermeasures</li>
+              </ul>
+              <h4>Resources</h4>
+              <ul>
+                <li>Resources for the 2024/2025 academic year can be found on <a href="https://webeep.polimi.it/course/view.php?id=15385">Webeep</a></li>
+              </ul>
+              <h3>Advanced Research Topics in Cybersecurity</h3>
+              <p>
+                Available to Politecnico di Milano's Computer Science and Engineering Ph.D. students and optionally to master students.
+              </p>
+              <h4>Program overview</h4>
+              <p>
+                The course provides an understanding of cutting-edge research challenges in cybersecurity. The first half will be held as frontal lectures, while the second half will be a flipped classroom with paper discussions.
+                Topics include: Economics of cybercrime, software vulnerabilities, malware analysis, hardware and embedded systems security, cyber-physical and critical systems security, cyberwarfare, and the security of machine learning.
+              </p>
+              <h3>Emerging Topics in Security </h3>
+              <p>
+                Available to Bocconi's Cyber Risk Strategy and Governance master students.
+              </p>
+              <h4>Program overview</h4>
+              <p>
+                The short course (~16 hrs) provides an overview of the most relevant research topics presented last year in cybersecurity. The students may choose a top conference paper to present through the course, and will be tasked with evaluating others' presentations.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Research Section -->
+        <section>
+          <div class="two-column">
+            <div class="section-title">
+              <h2>Research</h2>
+            </div>
+            <div class="section-content">
+                My research mostly focuses on Cyber-Physical Systems (CPS) security. Currently I am working on diverse fields, including automotive, industrial robots, railway infrastructure, e-vehicle charging solutions, satellite systems, and critical infrastructure resilience. Across these domains, my main interests are attack detection and threat modeling, exploring threats emerging from integrating novel technological solutions into existing systems. 
+                Additionally, I am participating in various projects addressing emerging cybersecurity challenges involving AI-driven social engineering, covert communication channels utilizing Large Language Models (LLMs), and vulnerabilities within federated learning systems.           
+            </div>
+          </div>
+        </section>
+        <!-- Publication Highlights Section -->
+        <section>
+          <div class="two-column">
+            <div class="section-title">
+              <h2>Publication Highlights</h2>
+            </div>
+            <div class="section-content">
+              <h3>Janus: A Trusted Execution Environment Approach for Attack Detection in Industrial Robot Controllers (IEEE TETC 2024)</h3>
+              <p>
+                The evolution of our work on monitoring mechanisms for cyber-physical systems based on the use of Trusted Execution Environments, to guarantee the integrity of the attack detection algorithm even in case the controller's software is compromised, while not requiring external hardware for its detection process.              </p>
+              <p>
+                <a href="./docs/janus.pdf">Preprint</a> / <a href="https://ieeexplore.ieee.org/abstract/document/10508318">Link</a>
+              </p>
+              <h3>Evaluating the Impact of Privacy-Preserving Federated Learning on CAN Intrusion Detection (IEEE VTC 2024)</h3>
+              <p>
+                Our initial project focusing on the federation of ML/DL algorithms for intrusion detection on CAN. The goal of the paper is to understand the limitiations and requirements to federate CANdito (an evolution of CANnolo, see below) while maintaining detection capabilities and low network overhead.
+              </p>
+              <p>
+                <a href="./docs/federated.pdf">Preprint</a> / <a href="https://ieeexplore.ieee.org/abstract/document/10683636">Link</a>
+              </p>
+              <h3>CANflict: Exploiting Peripheral Conflicts for Data-Link Layer Attacks on Automotive Networks (ACM CCS 2022)</h3>
+              <p>
+                One of our team's most effective attack approaches. We demonstrate how it is possible to generate advanced data-link layer attacks against automotive networks (CAN) without requiring physical access to the vehicle, previously an assumption for that kind of attacks.
+              </p>
+              <p>
+                <a href="./docs/canflict.pdf">Preprint</a> / <a href="https://dl.acm.org/doi/abs/10.1145/3548606.3560618">Link</a>
+              </p>
+              <h3>CANnolo: An anomaly detection system based on LSTM autoencoders for controller area network (IEEE TNSM 2020)</h3>
+              <p>
+                The beginning of our research team work on automotive intrusion detection based on deep learning. Our IDS attempts to reconstruct the last CAN packets with a specific ID, and depending on its reconstruction error defines whether a sequence is anomalous or not.
+              </p>
+              <p>
+                <a href="./docs/cannolo.pdf">Preprint</a> / <a href="https://ieeexplore.ieee.org/abstract/document/9262960">Link</a>
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-    <script src="/assets/js/scale.fix.js"></script>
   </body>
 </html>
