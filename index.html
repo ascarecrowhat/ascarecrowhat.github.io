@@ -1,279 +1,718 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefano Longari's Academic Page</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-      /* Global Styles */
-      body {
-        margin: 0;
-        font-family: 'Open Sans', sans-serif;
-        background: #2C394B; /* Sharper gray background */
-        color: #333;
-      }
-      .container {
-        display: flex;
-        min-height: 100vh;
-      }
-      /* Sidebar Styles */
-      .sidebar {
-        flex: 0 0 300px;
-        background: #082032; /* Weaker blue */
-        color: #fff;
-        padding: 20px;
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        overflow-y: auto;
-      }
-      .sidebar h1 {
-        margin-top: 0;
-        font-size: 2em;
-        text-align: center; /* Center the name */
-      }
-      .sidebar img {
-        display: block;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin: 20px auto;
-        border: 4px solid #fff;
-      }
-      .sidebar .contact-info {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      .sidebar .contact-info p {
-        margin: 5px 0;
-      }
-      .sidebar .downloads {
-        list-style: none;
-        padding: 0;
-        text-align: center;
-      }
-      .sidebar .downloads li {
-        margin: 10px 0;
-        display: inline-block;
-      }
-      .sidebar .downloads a {
-        text-decoration: none;
-        color: #fff;
-        background: rgba(255,255,255,0.2);
-        padding: 4px 8px; /* Smaller download boxes */
-        border-radius: 5px;
-        transition: background 0.3s;
-        font-size: 0.9em;
-        margin: 0 5px;
-        display: inline-block;
-      }
-      .sidebar .downloads a:hover {
-        background: rgba(255,255,255,0.4);
-      }
-      /* Main Content Styles */
-      .main-content {
-        flex: 1;
-        padding: 40px;
-        overflow-y: auto;
-      }
-      .main-content section {
-        background: #fff;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      }
-      .main-content h3, .main-content h4 {
-        color: #31363F;
-        margin-top: 0;
-      }
-      /* Two-column layout for sections */
-      .two-column {
-        display: flex;
-        align-items: flex-start;
-      }
-      .section-title {
-        flex: 0 0 150px;
-        padding-right: 20px;
-        border-right: 2px solid #FF4C29;
-        text-align: right;
-      }
-      .section-title h2 {
-        margin: 0;
-        padding-right: 10px;
-        color: #31363F; /* h2 headers not black */
-      }
-      .section-content {
-        flex: 1;
-        padding-left: 20px;
-      }
-      /* Responsive: Stack Sidebar on top for small screens */
-      @media screen and (max-width: 768px) {
-        .container {
-          flex-direction: column;
-        }
-        .sidebar {
-          position: relative;
-          width: 100%;
-          height: auto;
-        }
-        .two-column {
-          flex-direction: column;
-        }
-        .section-title {
-          border-right: none;
-          text-align: left;
-          padding-right: 0;
-          margin-bottom: 10px;
-        }
-        .section-content {
-          padding-left: 0;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <!-- Sidebar with fixed basic info -->
-      <div class="sidebar">
-        <h1>Stefano Longari</h1>
-        <img src="./assets/img/me.jpg" alt="Profile Picture">
-        <div class="contact-info">
-          <p>stefano.longari@polimi.it</p>
-          <p>+39 02 2399 3443</p>
-        </div>
-        <ul class="downloads">
-          <li>
-            <a href="docs/curriculum_stefanolongari_07042025.pdf">
-              <i class="fas fa-file-download"></i> CV
-            </a>
-          </li>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stefano Longari — Cybersecurity Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0f14;
+    --bg-card: #12161e;
+    --bg-card-hover: #181d28;
+    --accent: #00e5a0;
+    --accent-dim: rgba(0,229,160,0.12);
+    --accent-glow: rgba(0,229,160,0.06);
+    --text: #c8cdd6;
+    --text-bright: #eaecf0;
+    --text-dim: #6b7280;
+    --border: rgba(255,255,255,0.06);
+    --border-accent: rgba(0,229,160,0.2);
+  }
 
-          <li>
-            <a href="https://scholar.google.com/citations?user=B1BwyfcAAAAJ">
-              <i class="fas fa-link"></i> Scholar
-            </a>
-          </li>
-          
-          <li>
-            <a href="https://www.scopus.com/authid/detail.uri?origin=resultslist&authorId=57212167947">
-              <i class="fas fa-link"></i> Scopus
-            </a>
-          </li>
-          
-          <li>
-            <a href="https://www.linkedin.com/in/stefano-longari/">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-          </li>
-        </ul>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(12,15,20,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem; height: 56px;
+  }
+  .nav-brand {
+    font-family: 'IBM Plex Mono', monospace; font-weight: 600;
+    color: var(--accent); font-size: 0.85rem; letter-spacing: 0.04em;
+    text-decoration: none; display: flex; align-items: center; gap: 0.45rem;
+  }
+  .nav-logo { flex-shrink: 0; }
+  .nav-links { display: flex; gap: 0.2rem; }
+  .nav-links a {
+    color: var(--text-dim); text-decoration: none; font-size: 0.8rem;
+    padding: 0.4rem 0.7rem; border-radius: 6px; transition: all 0.2s;
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--text-bright); background: rgba(255,255,255,0.04); }
+  .hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    color: var(--text); font-size: 1.4rem; padding: 0.3rem;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 2rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; align-items: center; gap: 4rem; }
+  .hero-content { flex: 1; min-width: 0; }
+  .hero-photo {
+    flex-shrink: 0; width: 280px; height: 360px;
+    border-radius: 14px; overflow: hidden;
+    border: 2px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px var(--accent-glow);
+    position: relative;
+  }
+  .hero-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
+    filter: grayscale(15%);
+    transition: filter 0.4s;
+  }
+  .hero-photo:hover img { filter: grayscale(0%); }
+  .hero-photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(12,15,20,0.5) 100%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
+    color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.6rem;
+  }
+  .hero-tag::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+  .hero h1 {
+    font-family: 'Source Serif 4', serif; font-weight: 700;
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    color: var(--text-bright); line-height: 1.15; margin-bottom: 1.6rem;
+    max-width: 700px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero-bio {
+    font-size: 1.05rem; max-width: 620px; margin-bottom: 2.2rem;
+    color: var(--text); line-height: 1.8;
+  }
+  .hero-meta { display: flex; flex-wrap: wrap; gap: 1.6rem; margin-bottom: 2.4rem; }
+  .hero-meta-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--text-dim);
+  }
+  .hero-meta-item strong { color: var(--accent); font-weight: 600; }
+  .hero-links { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.55rem 1.2rem; border-radius: 6px; font-size: 0.82rem;
+    text-decoration: none; font-weight: 500; transition: all 0.25s;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .btn-primary { background: var(--accent); color: var(--bg); }
+  .btn-primary:hover { box-shadow: 0 0 20px rgba(0,229,160,0.3); transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid var(--border); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem;
+    color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-label::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
+  .section-title {
+    font-family: 'Source Serif 4', serif; font-weight: 600;
+    font-size: 1.8rem; color: var(--text-bright); margin-bottom: 2.5rem;
+  }
+
+  /* ── RESEARCH ── */
+  .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.2rem; }
+  .research-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.6rem; transition: all 0.3s;
+  }
+  .research-card:hover { border-color: var(--border-accent); background: var(--bg-card-hover); transform: translateY(-2px); }
+  .research-card h3 {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.88rem;
+    color: var(--accent); margin-bottom: 0.6rem; font-weight: 600;
+  }
+  .research-card p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.65; }
+
+  /* ── LAB ── */
+  .lab-box {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 2.2rem;
+  }
+  .lab-header { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+  .lab-header h3 {
+    font-family: 'Source Serif 4', serif; font-size: 1.3rem;
+    color: var(--text-bright); font-weight: 600;
+  }
+  .lab-link {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
+    color: var(--accent); text-decoration: none; border: 1px solid var(--border-accent);
+    padding: 0.25rem 0.7rem; border-radius: 4px; transition: all 0.2s;
+  }
+  .lab-link:hover { background: var(--accent-dim); }
+  .lab-desc { font-size: 0.92rem; color: var(--text); line-height: 1.75; margin-bottom: 1.5rem; max-width: 800px; }
+  .lab-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .lab-stat {
+    display: flex; align-items: baseline; gap: 0.4rem;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--text-dim);
+  }
+  .lab-stat strong { color: var(--accent); font-size: 1.1rem; }
+  .lab-lines { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .lab-line {
+    font-size: 0.78rem; padding: 0.3rem 0.8rem; border-radius: 20px;
+    border: 1px solid var(--border); color: var(--text); transition: all 0.2s;
+  }
+  .lab-line:hover { border-color: var(--border-accent); color: var(--accent); }
+
+  /* ── PUBLICATIONS ── */
+  .pub-group-title {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
+    color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;
+    margin: 2.5rem 0 1.2rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .pub-group-title:first-of-type { margin-top: 0; }
+  .pub-item {
+    padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.03);
+    display: flex; gap: 1rem; align-items: baseline;
+  }
+  .pub-item > a { text-decoration: none; flex: 1; }
+  .pub-year {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem;
+    color: var(--text-dim); min-width: 40px; flex-shrink: 0;
+  }
+  .pub-info { flex: 1; }
+  .pub-title {
+    font-size: 0.9rem; color: var(--text-bright); font-weight: 500;
+    margin-bottom: 0.25rem; line-height: 1.5; transition: color 0.2s;
+  }
+  a:hover .pub-title { color: var(--accent); }
+  .pub-venue { font-size: 0.8rem; color: var(--text-dim); font-style: italic; }
+  .pub-badge {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem; padding: 0.15rem 0.45rem; border-radius: 3px;
+    margin-left: 0.5rem; vertical-align: middle;
+    background: var(--accent-dim); color: var(--accent); font-weight: 600;
+  }
+
+  /* ── PROJECTS ── */
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; }
+  .project-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem; transition: all 0.3s;
+  }
+  .project-card:hover { border-color: var(--border-accent); }
+  .project-card .meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.7rem; }
+  .project-card h3 { font-size: 1rem; color: var(--text-bright); font-weight: 600; }
+  .project-card .role {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    color: var(--accent); background: var(--accent-dim);
+    padding: 0.15rem 0.5rem; border-radius: 3px;
+  }
+  .project-card .period { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-dim); margin-bottom: 0.4rem; }
+  .project-card p { font-size: 0.85rem; color: var(--text-dim); }
+
+  /* ── TEACHING ── */
+  .teaching-list { display: flex; flex-direction: column; gap: 0.8rem; }
+  .teaching-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.3rem 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.8rem; transition: all 0.3s;
+  }
+  .teaching-item:hover { border-color: var(--border-accent); }
+  .teaching-item h3 { font-size: 0.95rem; color: var(--text-bright); font-weight: 500; }
+  .teaching-item .sub { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem; }
+  .tag-instructor {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    padding: 0.2rem 0.6rem; border-radius: 4px; white-space: nowrap;
+    background: var(--accent-dim); color: var(--accent);
+  }
+
+  /* ── TALKS ── */
+  .talks-list { display: flex; flex-direction: column; gap: 0.5rem; }
+  .talk-item {
+    display: flex; gap: 1rem; align-items: baseline; padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    text-decoration: none; transition: all 0.2s;
+  }
+  a.talk-item:hover .talk-title { color: var(--accent); }
+  .talk-year { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--text-dim); min-width: 40px; }
+  .talk-title { font-size: 0.9rem; color: var(--text-bright); transition: color 0.2s; }
+  .talk-venue { font-size: 0.8rem; color: var(--text-dim); }
+  .talk-yt {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+    color: var(--accent); margin-left: 0.4rem; opacity: 0.7;
+  }
+
+  /* ── CONTACT ── */
+  .contact-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .contact-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.2rem 1.6rem;
+    text-decoration: none; color: var(--text); transition: all 0.3s;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .contact-item:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .contact-item .icon { font-size: 1.2rem; }
+  .contact-item .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--text-dim); }
+  .contact-item .value { font-size: 0.9rem; font-weight: 500; }
+
+  footer {
+    text-align: center; padding: 3rem 2rem; font-size: 0.78rem;
+    color: var(--text-dim); border-top: 1px solid var(--border);
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s ease forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; position: absolute; top: 56px; left: 0; right: 0;
+      background: rgba(12,15,20,0.97); flex-direction: column;
+      padding: 1rem; border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open { display: flex; }
+    .hamburger { display: block; }
+    .hero { min-height: auto; padding: 7rem 1.5rem 3rem; }
+    .hero-inner { flex-direction: column-reverse; gap: 2rem; }
+    .hero-photo { width: 180px; height: 230px; align-self: flex-start; }
+    section { padding: 3.5rem 1.5rem; }
+    .pub-item { flex-direction: column; gap: 0.3rem; }
+    .teaching-item { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand"><svg class="nav-logo" width="22" height="22" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- brim -->
+      <ellipse cx="50" cy="72" rx="48" ry="12" fill="none" stroke="#00e5a0" stroke-width="4"/>
+      <!-- brim fill: half white half black -->
+      <clipPath id="leftHalf"><rect x="0" y="60" width="50" height="24"/></clipPath>
+      <clipPath id="rightHalf"><rect x="50" y="60" width="50" height="24"/></clipPath>
+      <ellipse cx="50" cy="72" rx="46" ry="10" fill="#eaecf0" clip-path="url(#leftHalf)"/>
+      <ellipse cx="50" cy="72" rx="46" ry="10" fill="#1a1a2e" clip-path="url(#rightHalf)"/>
+      <!-- crown: floppy scarecrow cone -->
+      <path d="M30 72 C30 72, 28 38, 38 22 C42 16, 50 10, 55 14 C62 20, 68 32, 72 72" fill="none" stroke="#00e5a0" stroke-width="4" stroke-linecap="round"/>
+      <path d="M32 70 C32 70, 30 40, 39 24 C43 18, 50 13, 54 16 C60 22, 66 34, 70 70" fill="#0c0f14"/>
+      <!-- straw tufts -->
+      <line x1="38" y1="24" x2="32" y2="14" stroke="#00e5a0" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="42" y1="20" x2="44" y2="8" stroke="#00e5a0" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="48" y1="16" x2="54" y2="6" stroke="#00e5a0" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- band -->
+      <path d="M33 56 C40 52, 60 52, 69 56" stroke="#00e5a0" stroke-width="3" fill="none" opacity="0.5"/>
+    </svg> aScarecrowHat</a>
+    <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#lab">Lab</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#talks">Talks</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-content">
+    <div class="hero-tag fade-in">Politecnico di Milano &middot; DEIB</div>
+    <h1 class="fade-in delay-1">Stefano <span>Longari</span></h1>
+    <p class="hero-bio fade-in delay-2">
+      Junior Researcher (RTDa) at Politecnico di Milano.
+      My research focuses on the security of <strong style="color:var(--text-bright)">cyber-physical systems</strong> and <strong style="color:var(--text-bright)">critical infrastructures</strong> — from automotive and satellite systems to industrial environments.
+      I work on identifying novel threat scenarios and developing detection methods, including ML-based approaches.
+      I also investigate social engineering and the evolving impact of AI on it.
+    </p>
+    <div class="hero-meta fade-in delay-3">
+      <div class="hero-meta-item"><strong>9</strong> Journal Papers (7 Q1)</div>
+      <div class="hero-meta-item"><strong>21</strong> Conference Papers</div>
+      <div class="hero-meta-item"><strong>2</strong> Patents</div>
+    </div>
+    <div class="hero-links fade-in delay-4">
+      <a href="mailto:stefano.longari@polimi.it" class="btn btn-primary">&#9993; Email</a>
+      <a href="https://scholar.google.com/citations?user=B1BwyfcAAAAJ&hl=it" class="btn btn-ghost" target="_blank">Google Scholar</a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=57211424089" class="btn btn-ghost" target="_blank">Scopus</a>
+      <a href="https://www.linkedin.com/in/stefano-longari/" class="btn btn-ghost" target="_blank">LinkedIn</a>
+    </div>
+    </div>
+    <div class="hero-photo fade-in delay-3">
+      <img src="photo.jpg" alt="Stefano Longari speaking at a conference" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH INTERESTS -->
+<section id="research">
+  <div class="container">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Research Interests</h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <h3>Automotive Security</h3>
+        <p>Vulnerability analysis, intrusion detection on CAN/CAN FD, adversarial robustness of vehicle IDSs, and data-link layer attacks on in-vehicle networks.</p>
       </div>
-      <!-- Main content scrolls -->
-      <div class="main-content">
-        <!-- Introductory Section (without h2) -->
-        <section>
-          <p>
-            I am currently an assistant professor (RTDa) at Politecnico di Milano, working in the system security group at NECST Laboratory inside the Dipartimento di Elettronica, Informazione e Bioingegneria. The focus of my research revolves around threat modeling and developing offensive and defensive techniques for the security of cyber-physical systems and transportation systems, e.g., automotive, space, industry 4.0, and critical infrastructure. I teach mainly courses and lectures on (cyber-physical) systems security and social engineering.          </p>
-          <p>
-            For more details check my links on the left!
-          </p>
-
-          </section>
-        <!-- Teaching Section -->
-        <section>
-          <div class="two-column">
-            <div class="section-title">
-              <h2>Teaching</h2>
-            </div>
-            <div class="section-content">
-              <h3>Human and Physical Aspects of Security</h3>
-              <p>
-                Available to Politecnico di Milano's Computer Science and Engineering master students and to Bocconi's Cyber Risk Strategy and Governance master students.
-              </p>
-              <h4>Program overview</h4>
-              <ul>
-                <li>The threat modeling process, common threat modeling frameworks</li>
-                <li>The human factor in security: Social engineering, digital and physical mediums, mitigations and countermeasures</li>
-                <li>Cyber-physical systems security: differences between IT and OT, technology use cases, and countermeasures</li>
-              </ul>
-              <h4>Resources</h4>
-              <ul>
-                <li>Resources for the 2024/2025 academic year can be found on <a href="https://webeep.polimi.it/course/view.php?id=15385">Webeep</a></li>
-              </ul>
-              <h3>Advanced Research Topics in Cybersecurity</h3>
-              <p>
-                Available to Politecnico di Milano's Computer Science and Engineering Ph.D. students and optionally to master students.
-              </p>
-              <h4>Program overview</h4>
-              <p>
-                The course provides an understanding of cutting-edge research challenges in cybersecurity. The first half will be held as frontal lectures, while the second half will be a flipped classroom with paper discussions.
-                Topics include: Economics of cybercrime, software vulnerabilities, malware analysis, hardware and embedded systems security, cyber-physical and critical systems security, cyberwarfare, and the security of machine learning.
-              </p>
-              <h3>Emerging Topics in Security </h3>
-              <p>
-                Available to Bocconi's Cyber Risk Strategy and Governance master students.
-              </p>
-              <h4>Program overview</h4>
-              <p>
-                The short course (~16 hrs) provides an overview of the most relevant research topics presented last year in cybersecurity. The students may choose a top conference paper to present through the course, and will be tasked with evaluating others' presentations.
-              </p>
-            </div>
-          </div>
-        </section>
-        <!-- Research Section -->
-        <section>
-          <div class="two-column">
-            <div class="section-title">
-              <h2>Research</h2>
-            </div>
-            <div class="section-content">
-                My research mostly focuses on Cyber-Physical Systems (CPS) security. Currently I am working on diverse fields, including automotive, industrial robots, railway infrastructure, e-vehicle charging solutions, satellite systems, and critical infrastructure resilience. Across these domains, my main interests are attack detection and threat modeling, exploring threats emerging from integrating novel technological solutions into existing systems. 
-                Additionally, I am participating in various projects addressing emerging cybersecurity challenges involving AI-driven social engineering, covert communication channels utilizing Large Language Models (LLMs), and vulnerabilities within federated learning systems.           
-            </div>
-          </div>
-        </section>
-        <!-- Publication Highlights Section -->
-        <section>
-          <div class="two-column">
-            <div class="section-title">
-              <h2>Publication Highlights</h2>
-            </div>
-            <div class="section-content">
-              <h3>Janus: A Trusted Execution Environment Approach for Attack Detection in Industrial Robot Controllers (IEEE TETC 2024)</h3>
-              <p>
-                The evolution of our work on monitoring mechanisms for cyber-physical systems based on the use of Trusted Execution Environments, to guarantee the integrity of the attack detection algorithm even in case the controller's software is compromised, while not requiring external hardware for its detection process.              </p>
-              <p>
-                <a href="./docs/janus.pdf">Preprint</a> / <a href="https://ieeexplore.ieee.org/abstract/document/10508318">Link</a>
-              </p>
-              <h3>Evaluating the Impact of Privacy-Preserving Federated Learning on CAN Intrusion Detection (IEEE VTC 2024)</h3>
-              <p>
-                Our initial project focusing on the federation of ML/DL algorithms for intrusion detection on CAN. The goal of the paper is to understand the limitiations and requirements to federate CANdito (an evolution of CANnolo, see below) while maintaining detection capabilities and low network overhead.
-              </p>
-              <p>
-                <a href="./docs/federated.pdf">Preprint</a> / <a href="https://ieeexplore.ieee.org/abstract/document/10683636">Link</a>
-              </p>
-              <h3>CANflict: Exploiting Peripheral Conflicts for Data-Link Layer Attacks on Automotive Networks (ACM CCS 2022)</h3>
-              <p>
-                One of our team's most effective attack approaches. We demonstrate how it is possible to generate advanced data-link layer attacks against automotive networks (CAN) without requiring physical access to the vehicle, previously an assumption for that kind of attacks.
-              </p>
-              <p>
-                <a href="./docs/canflict.pdf">Preprint</a> / <a href="https://dl.acm.org/doi/abs/10.1145/3548606.3560618">Link</a>
-              </p>
-              <h3>CANnolo: An anomaly detection system based on LSTM autoencoders for controller area network (IEEE TNSM 2020)</h3>
-              <p>
-                The beginning of our research team work on automotive intrusion detection based on deep learning. Our IDS attempts to reconstruct the last CAN packets with a specific ID, and depending on its reconstruction error defines whether a sequence is anomalous or not.
-              </p>
-              <p>
-                <a href="./docs/cannolo.pdf">Preprint</a> / <a href="https://ieeexplore.ieee.org/abstract/document/9262960">Link</a>
-              </p>
-            </div>
-          </div>
-        </section>
+      <div class="research-card">
+        <h3>Satellite &amp; Space Security</h3>
+        <p>Intrusion detection for intra-satellite networks, cyber range simulation for satellite operations, and threat modeling for New Space architectures.</p>
+      </div>
+      <div class="research-card">
+        <h3>Cyber-Physical Systems Security</h3>
+        <p>Attack detection and threat modeling for industrial robots, smart water infrastructure, e-vehicle charging systems, railway networks, dams, and critical infrastructure resilience.</p>
+      </div>
+      <div class="research-card">
+        <h3>AI &amp; Social Engineering</h3>
+        <p>AI-driven social engineering, covert communication via LLMs, privacy leakage in federated learning, and the evolving impact of AI on human-targeted attacks.</p>
+      </div>
+      <div class="research-card">
+        <h3>Threat Modeling &amp; Detection</h3>
+        <p>Novel threat scenarios for emerging CPS, ML-based intrusion detection frameworks, and evaluation of detection robustness against evasion attacks.</p>
       </div>
     </div>
-  </body>
+  </div>
+</section>
+
+<!-- NECSTLAB -->
+<section id="lab" style="background: var(--bg-card);">
+  <div class="container">
+    <div class="section-label">Research Group</div>
+    <h2 class="section-title">NECSTLab — System Security Group</h2>
+    <div class="lab-box">
+      <div class="lab-header">
+        <h3>System Security @ NECSTLab</h3>
+        <a class="lab-link" href="https://necst.it/" target="_blank">necst.it &rarr;</a>
+      </div>
+      <p class="lab-desc">
+        The System Security group at <strong style="color:var(--text-bright)">NECSTLab</strong>, Politecnico di Milano, tackles all aspects of cybersecurity engineering — both offensively and defensively. Our research places a strong emphasis on real systems, with a focus on data-driven and machine learning approaches to build tools and concepts that aid security analysts and end users.
+      </p>
+      <div class="lab-stats">
+        <div class="lab-stat"><strong>1</strong> Full Professor</div>
+        <div class="lab-stat"><strong>~3</strong> Full-Time Researchers</div>
+        <div class="lab-stat"><strong>10</strong> Ph.D. Students</div>
+        <div class="lab-stat"><strong>30+</strong> Master's Students</div>
+      </div>
+      <div class="lab-lines">
+        <span class="lab-line">Security of Cyber-Physical Systems</span>
+        <span class="lab-line">ML for Cybersecurity &amp; Security of ML</span>
+        <span class="lab-line">Software Vulnerability Discovery &amp; Reverse Engineering</span>
+        <span class="lab-line">Malware &amp; Threat Analysis</span>
+        <span class="lab-line">Cyber Threat &amp; Vulnerability Intelligence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Publications</div>
+    <h2 class="section-title">Selected Publications</h2>
+
+    <div class="pub-group-title">Selected Conference Papers</div>
+
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/buechel" target="_blank">
+        <div class="pub-info">
+          <div class="pub-title">SoK: Automated TTP Extraction from CTI Reports — Are We There Yet? <span class="pub-badge">A*</span></div>
+          <div class="pub-venue">USENIX Security 2025</div>
+        </div>
+      </a>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <a href="https://arxiv.org/abs/2509.06703" target="_blank">
+        <div class="pub-info">
+          <div class="pub-title">When Secure Isn't: Assessing the Security of Machine Learning Model Sharing <span class="pub-badge">A*</span></div>
+          <div class="pub-venue">IEEE Symposium on Security and Privacy (S&amp;P)</div>
+        </div>
+      </a>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <div class="pub-info">
+        <div class="pub-title">TimberStrike: Dataset Reconstruction Attack Revealing Privacy Leakage in Federated Tree-Based Systems</div>
+        <div class="pub-venue">Privacy Enhancing Technologies Symposium (PETS 2025)</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <div class="pub-info">
+        <div class="pub-title">Linux hurt itself in its confusion! Exploiting Out-of-Memory Killer for Confusion Attacks via Heuristic Manipulation</div>
+        <div class="pub-venue">DIMVA 2025</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2024</span>
+      <a href="https://ieeexplore.ieee.org/abstract/document/11389406/" target="_blank">
+        <div class="pub-info">
+          <div class="pub-title">Model Predictive Control with Adaptive Resilience for Denial-of-Service Attacks Mitigation on a Regulated Dam</div>
+          <div class="pub-venue">IEEE 63rd Conference on Decision and Control (CDC 2024)</div>
+        </div>
+      </a>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2024</span>
+      <a href="https://re.public.polimi.it/handle/11311/1264461" target="_blank">
+        <div class="pub-info">
+          <div class="pub-title">Investigating the Impact of Evasion Attacks Against Automotive Intrusion Detection Systems</div>
+          <div class="pub-venue">Symposium on Vehicle Security and Privacy (VehicleSec 2024)</div>
+        </div>
+      </a>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2024</span>
+      <div class="pub-info">
+        <div class="pub-title">Securing LiDAR Communication through Watermark-based Tampering Detection <span class="pub-badge">AWARD</span></div>
+        <div class="pub-venue">VehicleSec 2024 — Best Paper Runner Up</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2022</span>
+      <div class="pub-info">
+        <div class="pub-title">CANflict: Exploiting Peripheral Conflicts for Data-Link Layer Attacks on Automotive Networks <span class="pub-badge">A*</span> <span class="pub-badge">AWARD</span></div>
+        <div class="pub-venue">ACM CCS 2022 — Best Paper Honorable Mention</div>
+      </div>
+    </div>
+
+    <div class="pub-group-title">Journal Papers</div>
+
+    <div class="pub-item">
+      <span class="pub-year">2025</span>
+      <div class="pub-info">
+        <div class="pub-title">Swarm: A Distributed Ledger-based Framework to Enhance Air Traffic Control Security Using ADS-B Protocol <span class="pub-badge">Q1</span></div>
+        <div class="pub-venue">ACM Transactions on Privacy and Security</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2024</span>
+      <div class="pub-info">
+        <div class="pub-title">Janus: A Trusted Execution Environment Approach for Attack Detection in Industrial Robot Controllers <span class="pub-badge">Q1</span></div>
+        <div class="pub-venue">IEEE Transactions on Emerging Topics in Computing</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2023</span>
+      <div class="pub-info">
+        <div class="pub-title">CyFence: Securing Cyber-physical Controllers Via Trusted Execution Environment <span class="pub-badge">Q1</span></div>
+        <div class="pub-venue">IEEE Transactions on Emerging Topics in Computing</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2023</span>
+      <div class="pub-info">
+        <div class="pub-title">Canova: A Hybrid Intrusion Detection Framework Based on Automatic Signal Classification for CAN <span class="pub-badge">Q1</span></div>
+        <div class="pub-venue">Computers &amp; Security</div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2021</span>
+      <a href="https://ieeexplore.ieee.org/abstract/document/9605204/" target="_blank">
+        <div class="pub-info">
+          <div class="pub-title">GOLIATH: A Decentralized Framework for Data Collection in Intelligent Transportation Systems <span class="pub-badge">Q1</span></div>
+          <div class="pub-venue">IEEE Transactions on Intelligent Transportation Systems</div>
+        </div>
+      </a>
+    </div>
+    <div class="pub-item">
+      <span class="pub-year">2020</span>
+      <div class="pub-info">
+        <div class="pub-title">CANnolo: An Anomaly Detection System Based on LSTM Autoencoders for Controller Area Network <span class="pub-badge">Q1</span></div>
+        <div class="pub-venue">IEEE Transactions on Network and Service Management</div>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem; font-size:0.85rem; color:var(--text-dim);">
+      Full list available on <a href="https://scholar.google.com/citations?user=B1BwyfcAAAAJ&hl=it" style="color:var(--accent);" target="_blank">Google Scholar</a>.
+    </p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background: var(--bg-card);">
+  <div class="container">
+    <div class="section-label">Fundings</div>
+    <h2 class="section-title">Research Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="meta"><h3>AHEAD</h3><span class="role">Task Leader</span></div>
+        <div class="period">2024 — 2028 &middot; EU</div>
+        <p>AI-informed Holistic EVs integration Approaches for Distribution grids.</p>
+      </div>
+      <div class="project-card">
+        <div class="meta"><h3>SOCRATE</h3><span class="role">Local PI</span></div>
+        <div class="period">2023 — 2025 &middot; ASI</div>
+        <p>Satellite Operations Cyber Range Evaluation.</p>
+      </div>
+      <div class="project-card">
+        <div class="meta"><h3>Satellite Cybersecurity</h3><span class="role">PI</span></div>
+        <div class="period">2024 — 2025 &middot; D-Orbit</div>
+        <p>Development of intrusion detection solutions for intra-satellite networks.</p>
+      </div>
+      <div class="project-card">
+        <div class="meta"><h3>SARIL</h3><span class="role">Participant</span></div>
+        <div class="period">2023 — 2026 &middot; EU</div>
+        <p>Sustainability And Resilience for Infrastructure and Logistics networks.</p>
+      </div>
+      <div class="project-card">
+        <div class="meta"><h3>KEEPER</h3><span class="role">Participant</span></div>
+        <div class="period">2024 — 2027 &middot; EU</div>
+        <p>Key Code based on Nanomaterials to Protect Services and Products.</p>
+      </div>
+      <div class="project-card">
+        <div class="meta"><h3>MICS (PNRR)</h3><span class="role">Participant</span></div>
+        <div class="period">2023 — 2025 &middot; PNRR</div>
+        <p>Made in Italy Circolare e Sostenibile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="container">
+    <div class="section-label">Teaching</div>
+    <h2 class="section-title">Teaching Activities</h2>
+    <div class="teaching-list">
+      <div class="teaching-item">
+        <div>
+          <h3>Human and Physical Aspects of Security</h3>
+          <div class="sub">Politecnico di Milano &amp; Bocconi &middot; ~60 students &middot; 50 hrs/yr</div>
+        </div>
+        <span class="tag-instructor">Instructor</span>
+      </div>
+      <div class="teaching-item">
+        <div>
+          <h3>Emerging Topics in Cybersecurity</h3>
+          <div class="sub">Bocconi, Cyber Risk Strategy and Governance Master &middot; ~30 students &middot; 16 hrs/yr</div>
+        </div>
+        <span class="tag-instructor">Instructor</span>
+      </div>
+      <div class="teaching-item">
+        <div>
+          <h3>Advanced Research Topics in Cyber Security</h3>
+          <div class="sub">Politecnico &amp; Bocconi, Ph.D. course &middot; ~10 students &middot; 30 hrs/yr</div>
+        </div>
+        <span class="tag-instructor">Instructor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TALKS -->
+<section id="talks" style="background: var(--bg-card);">
+  <div class="container">
+    <div class="section-label">Talks</div>
+    <h2 class="section-title">Selected Invited Talks</h2>
+    <div class="talks-list">
+      <a class="talk-item" href="https://www.youtube.com/watch?v=Atqo3u42uKc" target="_blank">
+        <span class="talk-year">2025</span>
+        <div>
+          <div class="talk-title">Il lato oscuro delle intercettazioni <span class="talk-yt">&#9654; YouTube</span></div>
+          <div class="talk-venue">REDDER Level Up 2025</div>
+        </div>
+      </a>
+      <a class="talk-item" href="https://www.youtube.com/watch?v=Ob2tCzykQCo&t=1328s" target="_blank">
+        <span class="talk-year">2024</span>
+        <div>
+          <div class="talk-title">L'anello debole: l'IA punta sugli esseri umani <span class="talk-yt">&#9654; YouTube</span></div>
+          <div class="talk-venue">REDDER Level Up 2024</div>
+        </div>
+      </a>
+      <a class="talk-item" href="https://www.youtube.com/watch?v=YHxfvH3fWIw" target="_blank">
+        <span class="talk-year">2022</span>
+        <div>
+          <div class="talk-title">The CAN Link-Layer, or how we implemented a broken protocol, and can we fix it? <span class="talk-yt">&#9654; YouTube</span></div>
+          <div class="talk-venue">HackInBo 2022</div>
+        </div>
+      </a>
+      <a class="talk-item" href="https://www.youtube.com/watch?v=2fplLJ3S3d0" target="_blank">
+        <span class="talk-year">2019</span>
+        <div>
+          <div class="talk-title">It's easier to break than to patch: a stealthy DoS attack against CAN <span class="talk-yt">&#9654; YouTube</span></div>
+          <div class="talk-venue">Hardwear.io 2019</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-grid">
+      <a href="mailto:stefano.longari@polimi.it" class="contact-item">
+        <span class="icon">&#9993;</span>
+        <div>
+          <div class="label">Email</div>
+          <div class="value">stefano.longari@polimi.it</div>
+        </div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=B1BwyfcAAAAJ&hl=it" target="_blank" class="contact-item">
+        <span class="icon">&#127891;</span>
+        <div>
+          <div class="label">Google Scholar</div>
+          <div class="value">Publications &amp; Citations</div>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/stefano-longari/" target="_blank" class="contact-item">
+        <span class="icon">&#128279;</span>
+        <div>
+          <div class="label">LinkedIn</div>
+          <div class="value">stefano-longari</div>
+        </div>
+      </a>
+      <div class="contact-item" style="cursor:default;">
+        <span class="icon">&#127963;</span>
+        <div>
+          <div class="label">Office</div>
+          <div class="value">DEIB, Politecnico di Milano</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Stefano Longari &middot; Built with care, hosted for free.
+</footer>
+
+</body>
 </html>
