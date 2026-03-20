@@ -316,23 +316,12 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-brand"><svg class="nav-logo" width="30" height="30" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <!-- brim -->
-      <ellipse cx="50" cy="72" rx="48" ry="12" fill="none" stroke="#00e5a0" stroke-width="4"/>
-      <!-- brim fill: half white half black -->
-      <clipPath id="leftHalf"><rect x="0" y="60" width="50" height="24"/></clipPath>
-      <clipPath id="rightHalf"><rect x="50" y="60" width="50" height="24"/></clipPath>
-      <ellipse cx="50" cy="72" rx="46" ry="10" fill="#eaecf0" clip-path="url(#leftHalf)"/>
-      <ellipse cx="50" cy="72" rx="46" ry="10" fill="#1a1a2e" clip-path="url(#rightHalf)"/>
-      <!-- crown: floppy scarecrow cone -->
-      <path d="M30 72 C30 72, 28 38, 38 22 C42 16, 50 10, 55 14 C62 20, 68 32, 72 72" fill="none" stroke="#00e5a0" stroke-width="4" stroke-linecap="round"/>
-      <path d="M32 70 C32 70, 30 40, 39 24 C43 18, 50 13, 54 16 C60 22, 66 34, 70 70" fill="#0c0f14"/>
-      <!-- straw tufts -->
-      <line x1="38" y1="24" x2="32" y2="14" stroke="#00e5a0" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="42" y1="20" x2="44" y2="8" stroke="#00e5a0" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="48" y1="16" x2="54" y2="6" stroke="#00e5a0" stroke-width="2.5" stroke-linecap="round"/>
-      <!-- band -->
-      <path d="M33 56 C40 52, 60 52, 69 56" stroke="#00e5a0" stroke-width="3" fill="none" opacity="0.5"/>
+    <a href="#" class="nav-brand"><svg class="nav-logo" width="35" height="35" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+      <defs><clipPath id="lc"><path d="M34 86 C34 82, 36 62, 44 46 Q52 34, 62 28 Q72 24, 78 32 C82 38, 86 60, 86 86 Z"/></clipPath><clipPath id="lb"><path d="M8 88 Q30 76, 60 74 Q90 76, 112 88 Q90 100, 60 102 Q30 100, 8 88 Z"/></clipPath><clipPath id="lo"><path d="M0 0 L120 0 L120 120 L0 120 Z M34 86 C34 82, 36 62, 44 46 Q52 34, 62 28 Q72 24, 78 32 C82 38, 86 60, 86 86 Z" clip-rule="evenodd"/></clipPath></defs>
+      <g clip-path="url(#lo)"><ellipse cx="60" cy="88" rx="52" ry="14" fill="none" stroke="#00e5a0" stroke-width="2.5"/></g>
+      <path d="M34 86 C34 82, 36 62, 44 46 Q52 34, 62 28 Q72 24, 78 32 C82 38, 86 60, 86 86" fill="none" stroke="#00e5a0" stroke-width="2.5"/>
+      <g clip-path="url(#lc)" stroke="#00e5a0" stroke-linecap="round"><line x1="44" y1="46" x2="54" y2="62" stroke-width="1.8" opacity="0.45"/><line x1="58" y1="36" x2="68" y2="54" stroke-width="1.8" opacity="0.45"/><line x1="72" y1="34" x2="80" y2="50" stroke-width="1.8" opacity="0.45"/><line x1="72" y1="36" x2="50" y2="56" stroke-width="1.8" opacity="0.45"/><line x1="60" y1="34" x2="40" y2="50" stroke-width="1.8" opacity="0.45"/></g>
+      <g clip-path="url(#lb)" stroke="#00e5a0" stroke-linecap="round"><line x1="14" y1="84" x2="26" y2="96" stroke-width="1.6" opacity="0.35"/><line x1="28" y1="80" x2="40" y2="94" stroke-width="1.6" opacity="0.35"/><line x1="80" y1="80" x2="92" y2="94" stroke-width="1.6" opacity="0.35"/><line x1="94" y1="84" x2="106" y2="96" stroke-width="1.6" opacity="0.35"/><line x1="26" y1="94" x2="14" y2="86" stroke-width="1.6" opacity="0.35"/><line x1="40" y1="92" x2="28" y2="82" stroke-width="1.6" opacity="0.35"/><line x1="92" y1="92" x2="80" y2="82" stroke-width="1.6" opacity="0.35"/><line x1="106" y1="94" x2="94" y2="86" stroke-width="1.6" opacity="0.35"/></g>
     </svg> aScarecrowHat</a>
     <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
     <div class="nav-links">
